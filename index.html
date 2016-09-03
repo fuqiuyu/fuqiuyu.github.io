@@ -1,1 +1,133 @@
-hello github
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=640,user-scalable=no,target-densityDpi=device-dpi">
+<link type="text/css"  rel="stylesheet" href="style/style.css" />
+<link type="text/css"  rel="stylesheet" href="style/animation.css" />
+<script src="js/vq.js"></script>
+<title>H5打怪</title>
+</head>
+
+<body >
+<script>
+	document.body.style.height=view().h+'px';
+</script>
+<section class="page1 sectionIn">
+	<div class="text"></div>
+	<div class="bgPage"></div>
+    <div class="bgStar"></div>
+    <div class="bgStarLine"></div>
+    <div class="main">
+     <div class='human'></div>
+    	<div class="rocket"></div>
+        <!--<div class="thanks"></div>
+        <div class="withyou"></div>-->
+      
+        
+        
+        <span class="cloud"></span>
+        <span class="cloud"></span>
+        <span class="cloud"></span>
+    </div>
+    
+    <div class='planet'></div>
+    <!--<div class='smoke1'></div>-->
+    <div class='smoke'></div>
+    <div class='bigRocket'></div>
+   
+    
+    <div class="arrow"></div>
+    <div class="process">
+    	<span id="pro"></span>
+    </div>
+    
+    
+</section>
+
+<div class="music musicPlay" id="music">
+	<audio src="audio/bg.mp3" preload="auto"  />
+</div>
+
+<script>
+window.onload=function(){
+	musicPlay();		
+}
+changePage();
+function changePage(){
+	var section=document.getElementsByTagName('section');
+	var startY=0;
+	bind(section[0], 'touchstart', function(ev){
+		var ev=ev||window.event;
+		//console.log(ev.changedTouches);
+		ev.preventDefault();
+		startY=ev.changedTouches[0].pageY;
+	})
+	bind(section[0], 'touchend', function(ev){
+		var ev=ev||window.event;
+		//console.log(ev.changedTouches);
+		ev.preventDefault();
+		var endY=ev.changedTouches[0].pageY;
+		if(endY<startY){
+			removeClass(section[0], 'sectionIn');
+			addClass(section[0],'sectionOut');
+			setTimeout(function(){
+				window.location.href='H5打怪_game.html';	
+			},2500)
+			
+		}else{
+			removeClass(section[0], 'sectionOut');
+			addClass(section[0],'sectionIn');	
+		}
+	})
+}
+function musicPlay(){
+	var oAudio=s('music').getElementsByTagName('audio')[0];
+	oAudio.play();
+	bind(s('music'),'touchend',function(){
+		if(oAudio.paused){
+			oAudio.play();
+			removeClass(s('music'), 'musicPause');	
+			addClass(s('music'), 'musicPlay');
+		}else{
+			oAudio.pause();
+			removeClass(s('music'), 'musicPlay');	
+			addClass(s('music'), 'musicPause');
+		}
+	});	
+}
+process();
+function process(){
+	var aImg=[
+		'img/star.png',
+		'img/thanks.png',
+		'img/widthyou.png',
+		'img/starLine.png',
+		'img/rocket.png',
+		'img/cloud.png',
+		'img/stop.png',
+		'img/run.png',
+		'img/arrow2.png',
+		'img/rocket3.png',
+		'img/human.png',
+		'img/smork.png',
+		'img/smork2.png',
+		'img/text3.png'
+	];	
+	var num=0;
+	
+	for(var i=0;i<aImg.length;i++){
+		var oImg=document.createElement('img');
+		oImg.src=aImg[i];
+		oImg.onload=function(){
+			num++;
+			s('pro').style.width=Math.ceil((num/aImg.length)*100)+'%';	
+			if(num==aImg.length){
+				s('pro').parentNode.parentNode.removeChild(s('pro').parentNode);	
+			}
+		}		
+	}
+}
+</script>
+</body>
+</html>
