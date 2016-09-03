@@ -145,8 +145,8 @@ function canvasGamePage(){
 	This.dieImageSize=[[],[180,138],[146,84],[103,94],[92,107]]; //尸体图像尺寸，由于mon是从1计数，第0个为空；
 	This.missionNum=[];		//每关怪物个数
 	This.time=[10];		//单关时间
-	This.totalMission=30; //总关数
-	This.passMission=16;   //已过的关数
+	This.totalMission=50; //总关数
+	This.passMission=18;   //已过的关数
 	This.score=0;
 	s('score').innerHTML='X'+This.score;
 	
@@ -468,7 +468,7 @@ canvasGamePage.prototype.begin=function(){
 
 canvasGamePage.prototype.init=function(){
 	var This=this
-	This.passMission=16;   //已过的关数
+	This.passMission=18;   //已过的关数
 	This.score=0;
 	s('score').innerHTML='X'+This.score;
 	
