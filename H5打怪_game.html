@@ -419,7 +419,7 @@ canvasGamePage.prototype.bindTouch=function(){ //由于canvas不支持touch事�
 		var touchY = ev.changedTouches[0].pageY;
 		
 		for(var a in This.position){
-			if(touchX>=(This.position[a][0]-30)&&touchX<=(This.position[a][0]+130)&&touchY>=(This.position[a][1]-30)&&touchY<=(This.position[a][1]+130)){
+			if(touchX>=(This.position[a][0]-40)&&touchX<=(This.position[a][0]+140)&&touchY>=(This.position[a][1]-40)&&touchY<=(This.position[a][1]+140)){
 				
 				This.monmove[a].die(true);
 				return false; //可阻止一次点击多个怪物
