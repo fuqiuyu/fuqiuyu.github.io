@@ -474,7 +474,7 @@ canvasGamePage.prototype.init=function(){
 	
 	clearTimeout(This.timeout);
 	clearInterval(This.second);
-	document.removeEventListener('touchstart',This.touch,false);
+	
 	This.monmove={};//存储创建的怪物对象
 	This.position={};
 	jc.clear();
@@ -497,6 +497,7 @@ function alertWin(option){
 	
 	
 	clearTimeout(canvasGame.after);
+	document.removeEventListener('touchstart',This.touch,false);
 	
 	var oDiv=document.createElement('div');
 	oDiv.className='alert';
