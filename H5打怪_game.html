@@ -369,7 +369,7 @@ function canvasGamePage(){
 			}else{
 				alertWin({text:'恭喜你消灭了'+ This.score +'只怪物！',a:'win'});
 			}
-			
+			document.removeEventListener('touchstart',This.touch,false);
 			//document.removeEventListener('touchstart',This.b,false);
 		},(This.time[0]+1)*1000);
 
@@ -497,7 +497,7 @@ function alertWin(option){
 	
 	
 	clearTimeout(canvasGame.after);
-	document.removeEventListener('touchstart',This.touch,false);
+	
 	
 	var oDiv=document.createElement('div');
 	oDiv.className='alert';
