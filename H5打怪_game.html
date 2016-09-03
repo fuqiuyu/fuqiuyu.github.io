@@ -390,7 +390,7 @@ function canvasGamePage(){
 				var clockwise=Math.round(Math.random());
 				var randomNum=getNum( {min:0,max:4,num:1} )[0]; //怪物随机数，出现哪个怪物	
 				var R=getNum( {min:200,max:300,num:1} )[0];     //每个怪物半径随机数
-				var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:3,num:1} )[0];	//每个怪物角度增量随机数
+				var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:4,num:1} )[0];	//每个怪物角度增量随机数
 				This.monster['mon'+randomNum]({canvas:'game',id:'mon'+i+This.passMission});
 				This.monmove['mon'+i+This.passMission]=new monsterMove({uid:'mon'+i+This.passMission,R:R,angelChange:angelChange,clockwise:clockwise});//唯一id：第n关第n个怪物,在画布生成怪物，并生成唯一id
 																							//用于 monsterMove控制该怪物
