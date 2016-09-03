@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+/* 首页 */
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+article,
+del,
+em,
+img,
+i,
+nav,
+aside,
+canvas,
+footer,
+header,
+menu,
+section,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+body{font-family:"微软雅黑"; color: #666;
+  background-color: #2d4082;
+  overflow: hidden;
+  position: relative;}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(255, 0, 0, 0.3);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  animation: bg 1s;
+  -webkit-animation: bg 1s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+section {positon:relative;width:100%;height:100%;overflow:hidden;background-size: cover; }
+.page1{background-color:#2d4081;}
+.text{position:absolute;width:417px;height:41px;left:50%;margin-left:-208px;top:80px;background:url(../img/text3.png) no-repeat;z-index:5;opacity:0;}
+.bgPage{width:429px;height:429px;position:absolute;left:50%;top:50%;background:#233264;border-radius:50%;margin-left:-215px;
+	margin-top:-215px;box-shadow:0 0 0 113px #283972,0 0 0 114px #243467,0 0 0 192px #2a3d79,0 0 0 193px #243467,0 0 0 250px #2c3f7e,
+	0 0 0 251px #243467;}
+
+.bgStar{width:100%;height:100%;background-size: cover;position:absolute;background:url(../img/star.png) no-repeat;}
+.bgStarLine{width:596px;height:433px;position:absolute;left:50%;top:50%;margin-left:-298px;margin-top:-216px;background:url(../img/starLine.png) no-repeat;background-size: cover;}
+.main{width:429px;height:429px;position:absolute;left:50%;top:50%;margin-left:-215px;margin-top:-215px;background-size: cover;}
+.main .rocket{width:165px;height:195px;position:absolute;left:49px;top:-30px;background:url(../img/rocket.png) no-repeat;background-size: cover;}
+.main .thanks{width:399px;height:288px;position:absolute;left:38px;top:44px;background:url(../img/thanks.png) no-repeat;background-size: cover;}
+.main .withyou{width:364px;height:134px;position:absolute;left:38px;top:208px;background:url(../img/widthyou.png) no-repeat;opacity:0;}
+.main .cloud{position:absolute;background:url(../img/cloud.png) no-repeat;background-size:contain;}
+.cloud:nth-of-type(1){left:30px;top:-50px;width:100px;height:70px;}
+.cloud:nth-of-type(2){left:0px;top:-80px;width:60px;height:40px;}
+.cloud:nth-of-type(3){left:150px;top:-100px;width:80px;height:60px;}
+.arrow{width:90px;height:65px;position:absolute;left:50%;margin-left:-45px;bottom:40px;background:url(../img/arrow2.png) no-repeat;
+animation:arrow 1s infinite ;-webkit-animation:arrow 1s infinite ;}
+.process{width:462px;height:25px;border:3px solid #4091dc;border-radius:15px;position:absolute;left:50%;margin-left:-231px;bottom:156px;overflow:hidden;}
+.process span{display:block;width:30%;height:25px;background-color:#4091dc;}
+.planet {position:absolute;width:100%;height:214px;bottom:0;background:url(../img/planet.png) no-repeat;background-size: cover;}
+.smoke{position:absolute;width:346px; height:123px;left:50%;margin-left:-173px;bottom:160px;background:url(../img/smork.png) no-repeat;background-size: cover;opacity:0;}
+.smoke1{position:absolute;width:147px;height:230px;left:50%;margin-left:-73px;bottom:210px;background:url(../img/smork2.png) no-repeat;background-size: cover;opacity:0;}
+.bigRocket{position:absolute;width:118px;height:294px;left:50%;margin-left:-59px;bottom:220px;background:url(../img/rocket3.png) no-repeat;background-size: cover;opacity:0;}
+.human{position:absolute;width:365px;height:445px;left:50%;margin-left:-182px;bottom:-40%;background:url(../img/human.png) no-repeat;background-size: cover;opacity:0;z-index:3;}
+
+.shake{animation: shake 0.5s infinite;
+  -webkit-animation: shake 0.5s infinite;
+  }
+
+/* 音乐 */
+.music{width:50px;height:47px;position:absolute;right:15px;bottom:15px;z-index:100;}
+.musicPlay{background:url(../img/run.png) no-repeat;animation:music 3s infinite linear; -webkit-animation:music 3s infinite linear;}
+.musicPause{background:url(../img/stop.png) no-repeat;animation:music 3s infinite linear;-webkit-animation:music 3s infinite linear;}
+
+/* 游戏页 */
+.pageGame{background-color:#2d4081;}
+.bgStarGame{width:100%;height:100%;position:absolute;background:url(../img/star_bg.png) no-repeat;background-size:cover;}
+.bar{width:100%;height:73px;position:absolute;bottom:0px;background-color:rgba(0,0,0,0.4);z-index:9;}
+.bar .score{height:100%;width:263px;float:left;background:url(../img/monster4.png) 20px 17px no-repeat;background-size:60px 56px;
+font-size:30px;line-height:73px;text-indent:88px; color:#55b9f8;}
+.bar .time{height:100%;width:150px;float:left;background:url(../img/time.png) 15px 16px no-repeat;font-size:30px;
+line-height:73px;color:#ffe400;text-indent:72px;}
+.alert {width:424px;height:489px;position:absolute;left:50%;margin-left:-212px;top:50%;margin-top:-300px;background:url(../img/alert.png) no-repeat;
+font-family:"微软雅黑";color:white;}
+.alert p{position:absolute;width:300px;top:210px;left:50%;margin-left:-150px;text-align:center;font-size:25px;line-height:30px;}
+.alert .start{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:60px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
+text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
+.alert .home{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:130px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
+text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
+
+
+section.sectionIn .main .rocket{animation:rocket 1s forwards;-webkit-animation:rocket 1s forwards;}
+section.sectionIn .main .thanks{animation:thanks 1s ;-webkit-animation:thanks 1s ;}
+section.sectionIn .main .withyou{animation:withyou 1s .5s forwards;-webkit-animation:withyou 1s .5s forwards;}
+section.sectionIn .cloud:nth-of-type(1){animation:cloud .8s infinite alternate linear;-webkit-animation:cloud .8s infinite alternate linear;}
+section.sectionIn .cloud:nth-of-type(2){animation:cloud 1s .3s infinite alternate linear;-webkit-animation:cloud 1s .3s infinite alternate linear;}
+section.sectionIn .cloud:nth-of-type(3){animation:cloud 1s .5s infinite alternate linear;-webkit-animation:cloud 1s .5s infinite alternate linear;}
+section.sectionIn .bgStarLine{animation:starLine 1s infinite alternate linear;-webkit-animation:starLine 1s infinite alternate linear;}
+section.sectionIn .human{animation:human 1s .5s forwards;-webkit-animation:human 1s .5s forwards;}
+section.sectionIn .planet{animation:planet .8s forwards;-webkit-animation:planet .8s forwards;}
+section.sectionIn .text{animation:text 1s 1s forwards;-webkit-animation:text 1s 1s forwards;}
+
+
+section.sectionOut .main .rocket{animation:rocketOut 1s forwards;-webkit-animation:rocketOut 1s forwards;}
+section.sectionOut .main .thanks{animation:thanksOut 1s  .1s forwards;-webkit-animation:thanksOut 1s .1s forwards;}
+section.sectionOut .main .withyou{animation:withyouOut 1s forwards;-webkit-animation:withyouOut 1s forwards;}
+section.sectionOut .cloud:nth-of-type(1){animation:cloudOut 1s forwards;-webkit-animation:cloudOut  1s forwards;}
+section.sectionOut .cloud:nth-of-type(2){animation:cloudOut  1s forwards;-webkit-animation:cloudOut  1s forwards;}
+section.sectionOut .cloud:nth-of-type(3){animation:cloudOut  1s forwards;-webkit-animation:cloudOut  1s forwards;}
+section.sectionOut .bgStarLine{animation:starLineOut 1s forwards;-webkit-animation:starLineOut 1s forwards;}
+section.sectionOut .bgStar{animation:starOut 1s forwards;-webkit-animation:starOut 1s forwards;}
+section.sectionOut .bgPage{animation:bgPageOut 2s .3s forwards;-webkit-animation:bgPageOut 2s .3s forwards;}
+section.sectionOut .human{animation:humanOut 0.5s;-webkit-animation:humanOut 0.5s;}
+section.sectionOut .text{animation:textOut 1s forwards;-webkit-animation:textOut 1s forwards;}
+section.sectionOut .planet{animation:planetOut 1.5s 1.5s forwards;-webkit-animation:planetOut 1.5s 1.5s forwards;}
+
+section.sectionOut .bigRocket{animation:bigRocket 1.8s .8s;-webkit-animation:bigRocket 1.8s .8s;}
+/*section.sectionOut .smoke1{animation:smoke1 1.5s 1s;-webkit-animation:smoke1 1.5s 1s;}*/
+/*section.sectionOut .smoke{animation:smoke 1s 1s;-webkit-animation:smoke 1s 1s;}*/
+
+
+
