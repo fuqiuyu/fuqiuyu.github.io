@@ -22,7 +22,7 @@
 </section>
 
 <div class="bar" id="bar">
-    	<div class="score" id="score"></div>
+    	<div class="score" id="score">X0</div>
         <div class="time" id="time">10秒</div>
         <div class="music musicPlay" id="music">
         	<audio src="audio/music.mp3"  preload="auto" loop />
@@ -394,8 +394,14 @@ function canvasGamePage(setting){
 			
 			if(This.score<=0){	
 				alertWin({text:'纳尼！你居然一个怪物都按不死！太逊了，给你一个机会，再来一次！'});
-			}else{
-				alertWin({text:'恭喜你消灭了'+ This.score +'只怪物！',a:'win'});
+			}else if(This.score<=20){
+				alertWin({text:'纳尼！你居才按死'+ This.score +'只怪物！！太逊了，给你一个机会，再来一次！'});
+			}else if(This.score<=50){
+				alertWin({text:'还不错嘛，按死'+ This.score +'只怪物！再来一次！消灭更多！',a:'win'});
+			}else if(This.score<=100){
+				alertWin({text:'好厉害！消灭'+ This.score +'只怪物！突破100指日可待！！',a:'win'});
+			}else {
+				alertWin({text:'天哪！你简直是旷世奇才，恭喜你消灭了'+ This.score +'只怪物！',a:'win'});
 			}
 			
 			//document.removeEventListener('touchstart',This.b,false);
