@@ -504,7 +504,7 @@ canvasGamePage.prototype.bindTouch=function(){ //由于canvas不支持touch事�
 
 
 </div>*/
-
+var musicOnOff=true;
 function begin(){
 	var This = this;
 		
@@ -571,7 +571,11 @@ function begin(){
 			 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
 			canvasGame = new canvasGamePage({grade:'easy'});
 			canvasGame.next();
-			musicPlay();
+			if(musicOnOff){
+				musicPlay();
+				musicOnOff=false;
+			}
+			
 			canvasGame.bindTouch();
 			
 			remove(s('grade'));
@@ -584,7 +588,10 @@ function begin(){
 			
 			canvasGame = new canvasGamePage({grade:'middle'});
 			canvasGame.next();
-			musicPlay();
+			if(musicOnOff){
+				musicPlay();
+				musicOnOff=false;
+			}
 			canvasGame.bindTouch();
 			
 			remove(s('grade'));
@@ -597,7 +604,10 @@ function begin(){
 			
 			canvasGame = new canvasGamePage({grade:'hard'});
 			canvasGame.next();
-			musicPlay();
+			if(musicOnOff){
+				musicPlay();
+				musicOnOff=false;
+			}
 			canvasGame.bindTouch();
 			
 			remove(s('grade'));
