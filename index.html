@@ -6,7 +6,7 @@
 <link type="text/css"  rel="stylesheet" href="style/style.css" />
 <link type="text/css"  rel="stylesheet" href="style/animation.css" />
 <script src="js/vq.js"></script>
-<title>打怪小游戏~~试试你的手指有多快~~</title>
+<title>试试你的手指有多快~~</title>
 </head>
 
 <body >
@@ -53,6 +53,7 @@
 window.onload=function(){
 	musicPlay();		
 }
+
 changePage();
 function changePage(){
 	var section=document.getElementsByTagName('section');
@@ -81,6 +82,8 @@ function changePage(){
 		}
 	})
 }
+
+
 function musicPlay(){
 	var oAudio=s('music').getElementsByTagName('audio')[0];
 	oAudio.play();
@@ -96,6 +99,7 @@ function musicPlay(){
 		}
 	});	
 }
+
 process();
 function process(){
 	var aImg=[
@@ -128,6 +132,7 @@ function process(){
 		}		
 	}
 }
+
 </script>
 </body>
 </html>

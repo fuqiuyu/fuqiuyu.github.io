@@ -7,7 +7,7 @@
 <link type="text/css"  rel="stylesheet" href="style/animation.css" />
 <script src="js/vq.js"></script>
 
-<title>打怪小游戏~~试试你的手指有多快~~</title>
+<title>试试你的手指有多快~~</title>
 </head>
 
 <body>
@@ -29,14 +29,23 @@
         </div>
 </div>
 
-<div class='alert' id='alert'>
+<!--<div class='alert  ' id='alert'>
 	<p>--游戏规则--<br/>
 当小怪物飞出来时，翘起你的手指，瞄准后按死小怪物们！！一定要按准哦~~~~
 	</p>
-    <div class='start' id='start'>开始游戏</div>
+    <div class='start down' id='start'>选择难度</div>
 
 
-</div>
+</div>-->
+
+<!--<div class='alert' id='grade' style="display:none;">
+	
+    <div class='start' id='sasy'>小试牛刀</div>
+    <div class='home' id='middle'>步入深渊</div>
+    <div class='hard' id='hard'>万劫不复</div>
+
+
+</div>-->
 
 <script src="js/jCanvaScript.1.5.18.min.js"></script>
 <script>
@@ -57,7 +66,7 @@
 }*/
 
 
-function canvasGamePage(){
+function canvasGamePage(setting){
 	s('game').width=view().w;
 	s('game').height=view().h;
 	
@@ -108,7 +117,7 @@ function canvasGamePage(){
 			img.src='img/monster1.png';
 			img.onload=function(){
 				jc.start(option.canvas,true);	
-				jc.image(img,-200,-200,109,114).id(option.id).level(2); //唯一id用于后续怪物animate运动
+				jc.image(img,-300,-300,109,114).id(option.id).level(2); //唯一id用于后续怪物animate运动
 				jc.start(option.canvas);
 				};	
 			},
@@ -117,7 +126,7 @@ function canvasGamePage(){
 				img.src='img/monster2.png';
 				img.onload=function(){
 					jc.start(option.canvas,true);
-					jc.image(img,-200,-200,109,113).id(option.id).level(2);
+					jc.image(img,-300,-300,109,113).id(option.id).level(2);
 					jc.start(option.canvas);
 				};	
 			},
@@ -126,7 +135,7 @@ function canvasGamePage(){
 				img.src='img/monster3.png';
 				img.onload=function(){
 					jc.start(option.canvas,true);
-					jc.image(img,-200,-200,107,129).id(option.id).level(2);
+					jc.image(img,-300,-300,107,129).id(option.id).level(2);
 					jc.start(option.canvas);
 				};	
 			},
@@ -135,7 +144,7 @@ function canvasGamePage(){
 				img.src='img/monster4.png';
 				img.onload=function(){
 					jc.start(option.canvas,true);
-					jc.image(img,-200,-200,125,110).id(option.id).level(2);
+					jc.image(img,-300,-300,125,110).id(option.id).level(2);
 					jc.start(option.canvas);
 				};	
 			}
@@ -145,10 +154,29 @@ function canvasGamePage(){
 	This.dieImageSize=[[],[180,138],[146,84],[103,94],[92,107]]; //尸体图像尺寸，由于mon是从1计数，第0个为空；
 	This.missionNum=[];		//每关怪物个数
 	This.time=[10];		//单关时间
-	This.totalMission=50; //总关数
-	This.passMission=18;   //已过的关数
+	This.totalMission=60; //总关数
+	
+	This.passMission=8;   //已过的关数,默认8
 	This.score=0;
 	s('score').innerHTML='X'+This.score;
+	
+	switch(setting.grade){
+		case 'easy':{
+			This.passMission=8;
+			break;
+		}
+		case 'middle':{
+			This.passMission=12;
+			break;
+		}
+		case 'hard':{
+			This.passMission=12;
+			break;
+		}
+		default:
+			break;
+			
+	}
 	
 	//第一重路径区域边界
 	This.minX=50;
@@ -271,7 +299,7 @@ function canvasGamePage(){
 		that.roundY = that.Y + that.R*Math.sin(that.angel*Math.PI/180);
 		
 		
-	//	console.log(that.uid+':'+that.roundX+','+that.roundY);
+		//console.log(that.uid+':'+that.roundX+','+that.roundY);
 		
 		This.position[that.uid]=[]; 	//将当前位置存储到This.position
 		This.position[that.uid][0]=that.roundX;
@@ -369,7 +397,7 @@ function canvasGamePage(){
 			}else{
 				alertWin({text:'恭喜你消灭了'+ This.score +'只怪物！',a:'win'});
 			}
-			document.removeEventListener('touchstart',This.touch,false);
+			
 			//document.removeEventListener('touchstart',This.b,false);
 		},(This.time[0]+1)*1000);
 
@@ -390,10 +418,27 @@ function canvasGamePage(){
 				var clockwise=Math.round(Math.random());
 				var randomNum=getNum( {min:0,max:4,num:1} )[0]; //怪物随机数，出现哪个怪物	
 				var R=getNum( {min:200,max:300,num:1} )[0];     //每个怪物半径随机数
-				var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:4,num:1} )[0];	//每个怪物角度增量随机数
+				switch(setting.grade){
+							case 'easy':{
+								var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:3,num:1} )[0];
+								break;
+							}
+							case 'middle':{
+								var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:4,num:1} )[0];
+								break;
+							}
+							case 'hard':{
+								var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:5,num:1} )[0];
+								break;
+							}
+							default:
+								break;
+								
+						}
+				//var angelChange=(Math.round(Math.random())?1:-1)*getNum( {min:1,max:3,num:1} )[0];	//每个怪物角度增量随机数
 				This.monster['mon'+randomNum]({canvas:'game',id:'mon'+i+This.passMission});
 				This.monmove['mon'+i+This.passMission]=new monsterMove({uid:'mon'+i+This.passMission,R:R,angelChange:angelChange,clockwise:clockwise});//唯一id：第n关第n个怪物,在画布生成怪物，并生成唯一id
-																							//用于 monsterMove控制该怪物
+				//console.log(angelChange);																			//用于 monsterMove控制该怪物
 				i++;
 				if(i<This.missionNum[This.passMission]){
 					createMonster();	
@@ -401,6 +446,7 @@ function canvasGamePage(){
 				
 			},200);
 		};
+		
 		This.passMission++;
 	}
 //	This.next();
@@ -419,7 +465,7 @@ canvasGamePage.prototype.bindTouch=function(){ //由于canvas不支持touch事�
 		var touchY = ev.changedTouches[0].pageY;
 		
 		for(var a in This.position){
-			if(touchX>=(This.position[a][0]-40)&&touchX<=(This.position[a][0]+140)&&touchY>=(This.position[a][1]-40)&&touchY<=(This.position[a][1]+140)){
+			if(touchX>=(This.position[a][0]-30)&&touchX<=(This.position[a][0]+130)&&touchY>=(This.position[a][1]-30)&&touchY<=(This.position[a][1]+130)){
 				
 				This.monmove[a].die(true);
 				return false; //可阻止一次点击多个怪物
@@ -449,39 +495,6 @@ canvasGamePage.prototype.bindTouch=function(){ //由于canvas不支持touch事�
 	
 }
 
-canvasGamePage.prototype.begin=function(){
-	var This = this;
-	
-		
-	This.a=function(ev){
-		var ev = ev||window.event;
-		 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
-		
-		This.next();
-		musicPlay();
-		This.bindTouch();
-		//s('alert').style.display='none';
-		remove(s('alert'));
-	}
-	bind(s('start'),'touchstart',This.a);
-}
-
-canvasGamePage.prototype.init=function(){
-	var This=this
-	This.passMission=18;   //已过的关数
-	This.score=0;
-	s('score').innerHTML='X'+This.score;
-	
-	clearTimeout(This.timeout);
-	clearInterval(This.second);
-	
-	This.monmove={};//存储创建的怪物对象
-	This.position={};
-	jc.clear();
-	This.next();
-	This.bindTouch();
-}
-
 
 /*<div class='alert' id='alert'>
 	<p>--游戏规则--<br/>
@@ -492,13 +505,115 @@ canvasGamePage.prototype.init=function(){
 
 </div>*/
 
+function begin(){
+	var This = this;
+		
+	var oDiv=document.createElement('div');
+	oDiv.className='alert';
+	oDiv.id='alert';
+	var oP = document.createElement('p');
+	oP.innerHTML='--游戏规则--<br/>\
+当小怪物飞出来时，翘起你的手指，瞄准后按死小怪物们！！一定要按准哦~~~~';
+	var oStart=document.createElement('div');
+	oStart.className='start';
+	oStart.id='start';
+	oStart.innerHTML='选择难度';
+	
+	document.body.appendChild(oDiv);
+	oDiv.appendChild(oP);
+	oDiv.appendChild(oStart);	
+		
+	/*<div class='alert' id='grade' style="display:none;">
+	
+    <div class='start' id='sasy'>小试牛刀</div>
+    <div class='home' id='middle'>步入深渊</div>
+    <div class='hard' id='hard'>万劫不复</div>
+
+
+</div>*/	
+	var oDiv=document.createElement('div');
+	oDiv.className='alert';
+	oDiv.style.display='none';
+	oDiv.id='grade';
+	
+	var oEasy=document.createElement('div');
+	oEasy.className='start';
+	oEasy.id='easy';
+	oEasy.innerHTML='小试牛刀';
+	var oMid=document.createElement('div');
+	oMid.className='home';
+	oMid.id='middle';
+	oMid.innerHTML='步入深渊';
+	var oHard=document.createElement('div');
+	oHard.className='hard';
+	oHard.id='hard';
+	oHard.innerHTML='丧心病狂';
+	
+	document.body.appendChild(oDiv);
+	oDiv.appendChild(oEasy);
+	oDiv.appendChild(oMid);	
+	oDiv.appendChild(oHard);	
+	This.a=function(ev){
+		var ev = ev||window.event;
+		 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
+		
+		//This.next();
+		//musicPlay();
+		//This.bindTouch();
+		//s('alert').style.display='none';
+		remove(s('alert'));
+		
+		s('grade').style.display='block';	
+	
+		
+		bind(s('easy'),'touchstart',function(ev){
+			var ev = ev||window.event;
+			 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
+			canvasGame = new canvasGamePage({grade:'easy'});
+			canvasGame.next();
+			musicPlay();
+			canvasGame.bindTouch();
+			
+			remove(s('grade'));
+			//s('grade').style.display='block';
+		});
+		
+		bind(s('middle'),'touchstart',function(ev){
+			var ev = ev||window.event;
+			 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
+			
+			canvasGame = new canvasGamePage({grade:'middle'});
+			canvasGame.next();
+			musicPlay();
+			canvasGame.bindTouch();
+			
+			remove(s('grade'));
+			//s('grade').style.display='block';
+		});
+		
+		bind(s('hard'),'touchstart',function(ev){
+			var ev = ev||window.event;
+			 ev.stopPropagation()?ev.stopPropagation():ev.cancelBubble=true;
+			
+			canvasGame = new canvasGamePage({grade:'hard'});
+			canvasGame.next();
+			musicPlay();
+			canvasGame.bindTouch();
+			
+			remove(s('grade'));
+			//s('grade').style.display='block';
+		});
+	}
+	bind(s('start'),'touchstart',This.a);
+	
+}
 
 function alertWin(option){
 	
 	
 	clearTimeout(canvasGame.after);
-	
-	
+
+	document.removeEventListener('touchstart',canvasGame.touch,false);
 	var oDiv=document.createElement('div');
 	oDiv.className='alert';
 	var oP = document.createElement('p');
@@ -515,9 +630,30 @@ function alertWin(option){
 		var ev = ev||window.event;
 		ev.stopPropagation() ? ev.stopPropagation() : ev.cancelBubble=true;
 		remove(oDiv);
-		canvasGame.init();
+		//canvasGame.init();
+		//window.location.href='H5打怪_game.html';
+		
+		begin();
 			
 	})
+	
+	
+/*canvasGamePage.prototype.init=function(){
+	var This=this
+	This.passMission=0;   //已过的关数
+	This.score=0;
+	s('score').innerHTML='X'+This.score;
+	
+	clearTimeout(This.timeout);
+	clearInterval(This.second);
+	document.removeEventListener('touchstart',This.touch,false);
+	This.monmove={};//存储创建的怪物对象
+	This.position={};
+	jc.clear();
+	This.next();
+	This.bindTouch();
+}*/
+	
 	
 	if(option.a){
 		var oHome=document.createElement('div');
@@ -558,8 +694,8 @@ function musicPlay(){
 	})
 }
 
-var canvasGame = new canvasGamePage();
-canvasGame.begin();
+//var canvasGame = new canvasGamePage();
+begin();
 
 
 
