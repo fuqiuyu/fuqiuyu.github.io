@@ -99,7 +99,7 @@ text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white
 text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
 .alert .hard{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:200px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
 text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
-
+.prompt{ background:rgba(0,0,0,0.8) url(../img/game-icon_share.png) no-repeat; background-size:cover; width:100%; height:100%; position:absolute; right:0px; top:0px; color:#333; z-index:9; -webkit-transition:1s;transition:1s;}
 
 section.sectionIn .main .rocket{animation:rocket 1s forwards;-webkit-animation:rocket 1s forwards;}
 section.sectionIn .main .thanks{animation:thanks 1s ;-webkit-animation:thanks 1s ;}
