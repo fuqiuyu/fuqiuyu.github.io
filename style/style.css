@@ -91,11 +91,13 @@ font-size:30px;line-height:73px;text-indent:88px; color:#55b9f8;}
 .bar .time{height:100%;width:150px;float:left;background:url(../img/time.png) 15px 16px no-repeat;font-size:30px;
 line-height:73px;color:#ffe400;text-indent:72px;}
 .alert {width:424px;height:489px;position:absolute;left:50%;margin-left:-212px;top:50%;margin-top:-300px;background:url(../img/alert.png) no-repeat;
-font-family:"微软雅黑";color:white;}
+font-family:"微软雅黑";color:white;opacity:0;animation:alert 1s 0.8s forwards;-webkit-animation:alert 1s 0.8s  forwards;z-index:5;}
 .alert p{position:absolute;width:300px;top:210px;left:50%;margin-left:-150px;text-align:center;font-size:25px;line-height:30px;}
 .alert .start{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:60px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
 text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
 .alert .home{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:130px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
+text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
+.alert .hard{position:absolute;width:200px;height:50px;left:50%;margin-left:-100px;bottom:200px;box-shadow:5px 5px 5px 3px rgba(197, 33, 48, 0.8); border-radius:10px;
 text-align:center;line-height:50px;font-size:30px;color:#ec636d;background:white;}
 
 
