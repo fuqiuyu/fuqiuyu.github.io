@@ -756,21 +756,26 @@ var aImg=[
 ];	
 var num=0;
 var loadF = false;
-process();
+
 function process(){
 	for(var i=0;i<aImg.length;i++){
 		var oImg=document.createElement('img');
 		oImg.src=aImg[i];
 		oImg.onload=function(){
 			num++;
+			//console.log(num,aImg.length);
 			if(num==aImg.length){	
 				loadF=true;
 			}
 		}		
 	}
 }
-
+process();
 begin();
+/*setTimeout(function(){
+	console.log(num,loadF);
+},100)*/
+//begin();
 
 
 

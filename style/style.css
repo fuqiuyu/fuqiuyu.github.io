@@ -66,7 +66,7 @@ section {positon:relative;width:100%;height:100%;overflow:hidden;background-size
 .arrow{width:90px;height:65px;position:absolute;left:50%;margin-left:-45px;bottom:40px;background:url(../img/arrow2.png) no-repeat;
 animation:arrow 1s infinite ;-webkit-animation:arrow 1s infinite ;}
 .process{width:462px;height:25px;border:3px solid #4091dc;border-radius:15px;position:absolute;left:50%;margin-left:-231px;bottom:156px;overflow:hidden;}
-.process span{display:block;width:30%;height:25px;background-color:#4091dc;}
+.process span{display:block;width:0%;height:25px;background-color:#4091dc;}
 .planet {position:absolute;width:100%;height:214px;bottom:0;background:url(../img/planet.png) no-repeat;background-size: cover;}
 .smoke{position:absolute;width:346px; height:123px;left:50%;margin-left:-173px;bottom:160px;background:url(../img/smork.png) no-repeat;background-size: cover;opacity:0;}
 .smoke1{position:absolute;width:147px;height:230px;left:50%;margin-left:-73px;bottom:210px;background:url(../img/smork2.png) no-repeat;background-size: cover;opacity:0;}
