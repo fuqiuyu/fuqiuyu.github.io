@@ -69,7 +69,7 @@ function changePage(){
 		//console.log(ev.changedTouches);
 		ev.preventDefault();
 		var endY=ev.changedTouches[0].pageY;
-		if(endY<startY){
+		if(endY<startY-20&&loadF){
 			removeClass(section[0], 'sectionIn');
 			addClass(section[0],'sectionOut');
 			setTimeout(function(){
@@ -116,10 +116,23 @@ function process(){
 		'img/human.png',
 		'img/smork.png',
 		'img/smork2.png',
-		'img/text3.png'
+		'img/text3.png',
+		'img/planet.png',
+		'img/monster1.png',
+		'img/monster2.png',
+		'img/monster3.png',
+		'img/monster4.png',
+		'img/monster11.png',
+		'img/monster12.png',
+		'img/monster13.png',
+		'img/monster14.png',
+		'img/run.png',
+		'img/stop.png',
+		'img/time.png',
+		'img/game-icon_share.png'
 	];	
 	var num=0;
-	
+	var loadF = false;
 	for(var i=0;i<aImg.length;i++){
 		var oImg=document.createElement('img');
 		oImg.src=aImg[i];
@@ -128,6 +141,7 @@ function process(){
 			s('pro').style.width=Math.ceil((num/aImg.length)*100)+'%';	
 			if(num==aImg.length){
 				s('pro').parentNode.parentNode.removeChild(s('pro').parentNode);	
+				loadF=true;
 			}
 		}		
 	}
