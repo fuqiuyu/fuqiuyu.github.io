@@ -757,7 +757,7 @@ var aImg=[
 var num=0;
 var loadF = false;
 
-function process(){
+function process(begin){
 	for(var i=0;i<aImg.length;i++){
 		var oImg=document.createElement('img');
 		oImg.src=aImg[i];
@@ -766,12 +766,13 @@ function process(){
 			//console.log(num,aImg.length);
 			if(num==aImg.length){	
 				loadF=true;
+				begin();
 			}
 		}		
 	}
 }
-process();
-begin();
+process(begin);
+
 /*setTimeout(function(){
 	console.log(num,loadF);
 },100)*/
